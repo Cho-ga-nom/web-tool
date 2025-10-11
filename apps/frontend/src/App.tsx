@@ -1,34 +1,58 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './styles/App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [message, setMessage] = useState<string | null>(null)
+
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    // 여기에 실제 로그인 로직을 연결하세요 (API 호출 등)
+    setMessage(`로그인 시도: ${email}`)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div id="app-root">
+      <header className="site-header">
+        <h1 className="site-title">web-tool</h1>
+      </header>
+
+      <main className="main-content">
+        <section className="login-container">
+          <form className="login-form" onSubmit={onSubmit}>
+            <h2 className="form-title">로그인</h2>
+            <label className="field">
+              <span className="label-text">이메일</span>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="you@example.com"
+              />
+            </label>
+
+            <label className="field">
+              <span className="label-text">비밀번호</span>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="••••••••"
+              />
+            </label>
+
+            <div className="actions">
+              <button type="submit" className="btn primary">로그인</button>
+            </div>
+
+            {message && <p className="message">{message}</p>}
+          </form>
+        </section>
+      </main>
+    </div>
   )
 }
 

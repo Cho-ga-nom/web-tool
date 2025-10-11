@@ -25,9 +25,28 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  /* 수직 및 수평 중앙 정렬 */
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+/* 반응형: 작은 화면에서 기본 폰트와 배경 조정 */
+@media (max-width: 600px) {
+  :root {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  body {
+    padding: 0.5rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+  :root {
+    font-size: 15px;
+  }
 }
 
 h1 {
