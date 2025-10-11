@@ -32,32 +32,24 @@ pnpm install
 - `apps/frontend` — Vite + React
 - `apps/backend` — NestJS
 
-개별 실행 예:
-
-```
-pnpm --filter ./apps/frontend dev
-
-# 백엔드 개발 서버
-pnpm --filter ./apps/backend run dev
-```
-
-두 앱을 동시에 실행하려면(권장):
+전체 실행:
 
 ```
 pnpm run dev:all
 ```
 
-## 빌드
+개별 실행:
 
-프론트엔드 빌드:
+```
+pnpm run dev:frontend
+pnpm run dev:backend
+```
+
+
+## 빌드
 
 ```
 pnpm --filter ./apps/frontend run build
-```
-
-백엔드 빌드:
-
-```
 pnpm --filter ./apps/backend run build
 ```
 
