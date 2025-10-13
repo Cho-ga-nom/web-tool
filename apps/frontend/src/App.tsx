@@ -1,58 +1,19 @@
-import { useState } from 'react'
 import './styles/App.css'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import DataManagerPage from './pages/DataManagerPage'
+import LoginPage from './pages/LoginPage'
 
 function App() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [message, setMessage] = useState<string | null>(null)
-
-  function onSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    // 여기에 실제 로그인 로직을 연결하세요 (API 호출 등)
-    setMessage(`로그인 시도: ${email}`)
-  }
-
   return (
-    <div id="app-root">
-      <header className="site-header">
-        <h1 className="site-title">web-tool</h1>
-      </header>
-
-      <main className="main-content">
-        <section className="login-container">
-          <form className="login-form" onSubmit={onSubmit}>
-            <h2 className="form-title">로그인</h2>
-            <label className="field">
-              <span className="label-text">이메일</span>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="you@example.com"
-              />
-            </label>
-
-            <label className="field">
-              <span className="label-text">비밀번호</span>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                placeholder="••••••••"
-              />
-            </label>
-
-            <div className="actions">
-              <button type="submit" className="btn primary">로그인</button>
-            </div>
-
-            {message && <p className="message">{message}</p>}
-          </form>
-        </section>
-      </main>
-    </div>
+    <BrowserRouter>
+      <nav style={{ position: 'absolute', top: 8, right: 12 }}>
+        <Link to="/">데이터</Link> | <Link to="/login">로그인</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<DataManagerPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
