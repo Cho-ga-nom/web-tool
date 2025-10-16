@@ -5,7 +5,7 @@ export async function parseExcelFile(file: File): Promise<Array<Record<string, a
     const dummy = [
       { id: 1, name: 'Test A', value: 100 },
       { id: 2, name: 'Test B', value: 200 },
-    ]
-    setTimeout(() => resolve(dummy), 200)
-  })
+    ];
+    setTimeout(() => resolve(dummy), 200);
+  });
 }

@@ -6,7 +6,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default defineConfig([
   globalIgnores(['node_modules', 'dist']),
-  // Base rules for TypeScript and general JS projects
+  
   tseslint.config(
     {
       ignores: ['eslint.config.*'],
