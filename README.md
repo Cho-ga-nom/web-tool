@@ -1,4 +1,4 @@
- # web-tool
+# web-tool
 
 게임 개발, 운영을 도와주는 웹 프로젝트 저장소입니다.
 Vite + React + TypeScript 기반의 프론트엔드와 NestJS 기반의 백엔드를 포함하는 pnpm 기반 모노레포입니다.
@@ -8,8 +8,8 @@ Vite + React + TypeScript 기반의 프론트엔드와 NestJS 기반의 백엔�
 ```
 - 데이터 시트 업로드, 조회
 - API 문서 작성, 편집
-- 데이터 패치
-- 로그 모니터링
+- 데이터 패치 (Kubernetes 사용)
+- 로그 모니터링 (Grafana 연동)
 - 푸시 알림 (게임 서버 개발 이후에 추가)
 ```
 
@@ -54,7 +54,6 @@ pnpm run dev:all
 pnpm run dev:frontend
 pnpm run dev:backend
 ```
-
 
 ## 빌드
 
