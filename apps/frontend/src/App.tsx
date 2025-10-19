@@ -1,23 +1,34 @@
-import './styles/App.css'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import DataManagerPage from './pages/DataManagerPage'
-import LoginPage from './pages/LoginPage'
-import DevApiPage from './pages/DevApiPage'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import DataManagerPage from './pages/DataManagerPage';
+import PatchPage from './pages/PatchPage';
+import DevApiPage from './pages/DevApiPage';
+
+import './styles/App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <nav style={{ position: 'absolute', top: 8, right: 12 }}>
-        <Link to="/">데이터</Link> | <Link to="/login">로그인</Link> |{' '}
-        <Link to="/dev-api">Dev API</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<DataManagerPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/dev-api" element={<DevApiPage />} />
-      </Routes>
+      <div className="app-layout">
+        <aside className="left-sidebar">
+          <div className="sidebar-links">
+            <Link to="/">Dashboard</Link>
+            <Link to="/data">Game Data</Link>
+            <Link to="/patch">Server Patch</Link>
+            <Link to="/api">API Document</Link>
+          </div>
+        </aside>
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/data" element={<DataManagerPage />} />
+            <Route path="/patch" element={<PatchPage />} />
+            <Route path="/api" element={<DevApiPage />} />
+          </Routes>
+        </main>
+      </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

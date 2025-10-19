@@ -1,4 +1,4 @@
-import React from 'react'
+// React import not required with the new JSX runtime
 
 export default function DevApiPage() {
   const apis = [
@@ -17,7 +17,7 @@ export default function DevApiPage() {
       method: 'GET',
       desc: '업로드된 데이터 목록 조회',
     },
-  ]
+  ];
 
   return (
     <div style={{ padding: 24 }}>
@@ -32,5 +32,5 @@ export default function DevApiPage() {
         ))}
       </ul>
     </div>
-  )
+  );
 }

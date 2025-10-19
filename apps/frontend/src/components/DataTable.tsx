@@ -1,13 +1,13 @@
-import React from 'react'
+// React import not required with the new JSX runtime
 
 export type DataTableProps = {
-  data: Array<Record<string, any>>
-}
+  data: Array<Record<string, any>>;
+};
 
 export default function DataTable({ data }: DataTableProps) {
-  if (!data || data.length === 0) return <div>데이터가 없습니다.</div>
+  if (!data || data.length === 0) return <div>데이터가 없습니다.</div>;
 
-  const columns = Object.keys(data[0])
+  const columns = Object.keys(data[0]);
 
   return (
     <table className="data-table">
@@ -28,5 +28,5 @@ export default function DataTable({ data }: DataTableProps) {
         ))}
       </tbody>
     </table>
-  )
+  );
 }
